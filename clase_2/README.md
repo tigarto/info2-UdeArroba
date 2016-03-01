@@ -152,7 +152,54 @@ Se desea obtener la nomina semanal (salario neto) – de los empleados de una em
   * El resto al 30%.
 
 ```
+#include <iostream>
+#include <string>
 
+using namespace std;
+
+int main() {
+    /* Definicion de variables */
+    //Entrada	
+	string nom;
+    float hr, tarifa;
+	// Auxiliares
+	float sBruto;
+	// Salida
+	float sNeto;
+
+    /** Entrada **/
+	// Solicitud de los datos de entrada
+    cout << "Ingrese el nombre del empleado del empleado: ";
+    getline(cin,nom);
+	cout << "Ingrese la cantidad de horas trabajadas: ";
+    cin >> hr;
+    cout << "Ingrese el valor de la hora: ";
+    cin >> tarifa;
+	/** Proceso **/
+	// Calculo del salario bruto
+	if (hr <= 35) {
+		sBruto = hr*tarifa;
+	}
+	else {
+		sBruto = 35*tarifa + 1.5*(hr - 35)*tarifa;		
+	}
+	// Calculo de los impuestos a pagar
+	if (sBruto <= 20000) {
+		imp = 0;
+	}
+	else if (sBruto <= 35000) {
+		imp = 0.2*(sBruto - 20000); 		
+	}
+	else {
+		imp = 0.2*15000 + 0.3*(sBruto - 35000); 
+	}
+	/** Salida **/
+    // Impresion de la colilla de pago
+    cout << "** COLILLA DE PAGO **\n";
+    cout << "- Nombre: " << nom << endl;
+    cout << "- Salario Neto: $" << salNeto << endl;
+    return 0;
+}
 ```
 **5. Ejemplo 5**:
 Se tiene un restaurante en el cual se manejan una lista de platos tal y como lo muestra la siguiente tabla:
@@ -169,5 +216,37 @@ Se tiene un restaurante en el cual se manejan una lista de platos tal y como lo 
 Implementar un algoritmo que tome como entrada la opción y de devuelva como resultado a la salida el menú elegido.
 
 ```
+#include <iostream>
 
+int main() {
+	int plato;
+	cout << "---------------------------------------\n";
+	cout << "-             MENU DEL DIA            -\n";
+	cout << "---------------------------------------\n";
+	cout << "1. Bandeja Paisa                       \n";
+	cout << "2. Lechona Tolimense	                \n";
+	cout << "3. Mondongo                            \n";
+	cout << "4. Churrasco                           \n";
+	cout << "5. Chunchurria                         \n";
+	cout << "6. Morcilla                            \n";
+	cout << "---------------------------------------\n";
+	cout << "Seleccione el plato deseado: ";
+    cin >> plato;
+    switch(plato) {
+		case 1: cout << "Usted selecciono Bandeja Paisa\n";
+				break;
+		case 2: cout << "Usted selecciono Lechona Tolimense\n";
+				break;
+		case 3: cout << "Usted selecciono Mondongo\n";
+				break;
+		case 4: cout << "Usted selecciono Churrasco\n";
+				break;
+		case 5: cout << "Usted selecciono Chunchurria\n";
+				break;
+		case 6: cout << "Usted selecciono Morcilla\n";
+				break;
+		default: cout << "Opcion no disponible\n";
+	}	
+	return 0;
+}
 ```
